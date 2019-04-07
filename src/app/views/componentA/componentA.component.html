@@ -1,6 +1,7 @@
 <h1>Component A</h1>
-<ul>
+<div id="msg-text">{{model.msg}}</div>
+<ul id="item-list">
     <li *ngFor="let item of model.list">
-      <span id="{{item.id}}">{{item.val}}</span>
+      <span id="{{item.id}}">{{item.value}}</span>
     </li>
 </ul>
