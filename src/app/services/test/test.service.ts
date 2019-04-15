@@ -1,8 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, from} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class TestService {
+
+  public constructor(private http: HttpClient) {}
+
+  public getCurrentTime(): Observable<Date> {
+    return this.http.get('http://worldclockapi.com/api/json/est/now')
+      .pipe(map(res => new Date()));
+  }
 
   public testMethod2Args(arg1, arg2): Observable<any> {
 
@@ -28,7 +37,7 @@ export class TestService {
 
   public testMethodNoArgs(): Observable<any> {
 
-    const retVal = {};
+    const retVal = {value: 3};
     return from(this.sleep(5000, retVal));
   }
 

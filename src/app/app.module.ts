@@ -3,6 +3,7 @@ import { HomeComponent } from './views/home/home.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Router, Routes, RouterModule } from '@angular/router';
@@ -20,7 +21,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, {enableTracing: false})
+    RouterModule.forRoot(routes, {enableTracing: false}),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
